@@ -18,28 +18,30 @@ class Menu(Manager):
     def conditions_choice(self, choice):
         recipes = Recipes()
         if choice == 1:
-            pass
+            recipes.show_menu()
         elif choice == 2:
-            recipes.show_recipes()
+            pass
 
 
 class Recipes:
-    def add_ingridients(self):
+    recipes = {}
+
+    def show_menu(self):
+        print('Enter recipe name: ')
+        enter_name_recipe = input()
+        self.recipe_name(recipe_name=enter_name_recipe)
+
+    def recipe_name(self, recipe_name):
         pass
 
-    def add_Instruction(self):
+    def recipe_ingridients(self):
+        pass
+
+    def recipe_instruction(self):
         pass
 
     def show_recipes(self):
         pass
-
-
-class Ingredients(Recipes):
-    pass
-
-
-class Instruction(Recipes):
-    pass
 
 
 def main():
