@@ -12,19 +12,23 @@ class Menu(Manager):
 
     def make_choice(self):
         while True:
-            user_choice = str(input())
+            user_choice = input()
             self.conditions_choice(choice=user_choice)
 
     def conditions_choice(self, choice):
-        recipes = Recipes()
-        if choice == 1:
+        recipes = Recipe()
+        if choice == '1':
             recipes.show_menu()
-        elif choice == 2:
+        elif choice == '2':
             pass
 
 
-class Recipes:
+class Recipe:
     recipes = {}
+    def __init__(self):
+        self.name = []
+        self.recipe_ingridients = []
+        self.recipe_instruction = []
 
     def show_menu(self):
         print('Enter recipe name: ')
@@ -32,12 +36,18 @@ class Recipes:
         self.recipe_name(recipe_name=enter_name_recipe)
 
     def recipe_name(self, recipe_name):
-        pass
+        self.name.append(recipe_name)
+        print(f'Enter the ingredients needed for cooking "{recipe_name}":')
+        enter_ingridients = input()
+        self.add_recipe_ingridients(ingridients=enter_ingridients)
 
-    def recipe_ingridients(self):
-        pass
+    def add_recipe_ingridients(self, ingridients):
+        self.recipe_ingridients.append(ingridients)
+        print(f'Enter the instructions:')
+        enter_instruction = input()
+        self.add_recipe_instruction(instructions=enter_instruction)
 
-    def recipe_instruction(self):
+    def add_recipe_instruction(self, instructions):
         pass
 
     def show_recipes(self):
